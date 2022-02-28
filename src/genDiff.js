@@ -5,7 +5,7 @@ const genDiff = (data1, data2) => {
   const keys1 = _.keys(data1);
   const keys2 = _.keys(data2);
   const keys = _.sortBy(_.union(keys1, keys2));
-  const result = keys
+  const result = ['{', ...keys
     .map((key) => {
       if (!_.has(data1, key)) {
         return [`  + ${key}: ${data2[key]}`];
@@ -14,8 +14,9 @@ const genDiff = (data1, data2) => {
       } if (data1[key] !== data2[key]) {
         return [`  - ${key}: ${data1[key]}  \n  + ${key}: ${data2[key]}`];
       } return [`    ${key}: ${data2[key]}`];
-    }, []);
-  return console.log(['{', ...result, '}'].join('\n'));
+    }, []), '}'].join('\n');
+  console.log(result);
+  return result;
 };
 
 export default (filepath1, filepath2) => {
