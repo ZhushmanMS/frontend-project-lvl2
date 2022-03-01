@@ -16,14 +16,15 @@ const genDiff = (data1, data2) => {
         return [`  - ${key}: ${data1[key]}  \n  + ${key}: ${data2[key]}`];
       } return [`    ${key}: ${data2[key]}`];
     }, []), '}'].join('\n');
-  console.log(dataDiff);
   return dataDiff;
 };
 
 export default (filepath1, filepath2) => {
-  const pathToFirstFile = readFileSync(path.resolve(process.cwd(), filepath1), 'utf-8');
-  const pathToSecondFile = readFileSync(path.resolve(process.cwd(), filepath2), 'utf-8');
-  const dataFromFirstFile = JSON.parse(pathToFirstFile);
-  const dataFromSecondFile = JSON.parse(pathToSecondFile);
-  genDiff(dataFromFirstFile, dataFromSecondFile);
+  const pathFirstFile = path.resolve(process.cwd(), filepath1);
+  const pathSecondFile = path.resolve(process.cwd(), filepath2);
+  const dataFirstFile = readFileSync(pathFirstFile, 'utf-8');
+  const dataSecondFile = readFileSync(pathSecondFile, 'utf-8');
+  const parsingDataFirstFile = JSON.parse(dataFirstFile);
+  const parsingDataSecondFile = JSON.parse(dataSecondFile);
+  return genDiff(parsingDataFirstFile, parsingDataSecondFile);
 };
