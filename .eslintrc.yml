@@ -4,8 +4,12 @@ env:
 extends:
   - airbnb-base
 parserOptions:
-  ecmaVersion: latest
+  # Включает поддержку конструкции import.meta.url
+  ecmaVersion: 2020
   sourceType: module
 rules:  
   no-console: 0
-  import/extensions: 0 # FIXME: remove when rule will be adjusted for new nodejs version
+  # FIXME: remove when rule will be adjusted for new nodejs version
+  import/extensions: 0 
+  # разрешает подчёркивание в именах только для двух констант
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]

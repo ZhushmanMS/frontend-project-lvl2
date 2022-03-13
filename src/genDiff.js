@@ -13,7 +13,7 @@ const genDiff = (data1, data2) => {
       } if (!_.has(data2, key)) {
         return [`  - ${key}: ${data1[key]}`];
       } if (data1[key] !== data2[key]) {
-        return [`  - ${key}: ${data1[key]}  \n  + ${key}: ${data2[key]}`];
+        return [`  - ${key}: ${data1[key]}\n  + ${key}: ${data2[key]}`];
       } return [`    ${key}: ${data2[key]}`];
     }, []), '}'].join('\n');
   return dataDiff;
