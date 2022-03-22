@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import _ from 'lodash';
 import path from 'path';
+import parse from './parsers.js'
 
 const genDiff = (data1, data2) => {
   const keys1 = _.keys(data1);
@@ -24,7 +25,9 @@ export default (filepath1, filepath2) => {
   const pathSecondFile = path.resolve(process.cwd(), filepath2);
   const dataFirstFile = readFileSync(pathFirstFile, 'utf-8');
   const dataSecondFile = readFileSync(pathSecondFile, 'utf-8');
-  const parsingDataFirstFile = JSON.parse(dataFirstFile);
-  const parsingDataSecondFile = JSON.parse(dataSecondFile);
+  const extnameFirstFile = path.extname(pathFirstFile).substring(1);
+  const extnameSecondFile = path.extname(pathSecondFile).substring(1);
+  const parsingDataFirstFile = parse(dataFirstFile, extnameFirstFile);
+  const parsingDataSecondFile = parse(dataSecondFile, extnameSecondFile);
   return genDiff(parsingDataFirstFile, parsingDataSecondFile);
 };
