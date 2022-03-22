@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import _ from 'lodash';
 import path from 'path';
-import parse from './parsers.js'
+import parse from './parsers.js';
 
 const genDiff = (data1, data2) => {
   const keys1 = _.keys(data1);
