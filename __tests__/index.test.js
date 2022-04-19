@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.resolve(__dirname, '..', '__fixtures__', filename);
 const stylishDiffResult = readFileSync(getFixturePath('stylish_diff_result'), 'utf-8');
 const plainDiffResult = readFileSync(getFixturePath('plain_diff_result'), 'utf-8');
+const jsonDiffResult = readFileSync(getFixturePath('json_diff_result'), 'utf-8');
 
 test('stylishDiff for JSON', () => {
   const filepath1 = getFixturePath('file1.json');
@@ -31,4 +32,16 @@ test('plainDiff for YAML', () => {
   const filepath1 = getFixturePath('file1.yaml');
   const filepath2 = getFixturePath('file2.yaml');
   expect(diff(filepath1, filepath2, 'plain')).toEqual(plainDiffResult);
+});
+
+test('jsonDiff for JSON', () => {
+  const filepath1 = getFixturePath('file1.json');
+  const filepath2 = getFixturePath('file2.json');
+  expect(diff(filepath1, filepath2, 'json')).toEqual(jsonDiffResult);
+});
+
+test('jsonDiff for YAML', () => {
+  const filepath1 = getFixturePath('file1.yaml');
+  const filepath2 = getFixturePath('file2.yaml');
+  expect(diff(filepath1, filepath2, 'json')).toEqual(jsonDiffResult);
 });
