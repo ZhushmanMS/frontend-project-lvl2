@@ -1,5 +1,6 @@
 import stylish from './stylish.js';
+import plain from './plain.js';
 
-const formatters = { stylish };
+const formatters = { stylish, plain };
 
 export default (ast, formatName) => formatters[formatName](ast);
