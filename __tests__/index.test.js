@@ -7,7 +7,7 @@ let expectedResult;
 
 const extAndFormat = [
   ['json', 'stylish'], ['json', 'plain'], ['json', 'json'],
-  ['yaml', 'stylish'], ['yaml', 'plain'], ['yaml', 'json'],
+  ['yml', 'stylish'], ['yml', 'plain'], ['yml', 'json'],
 ];
 
 const __filename = fileURLToPath(import.meta.url);
