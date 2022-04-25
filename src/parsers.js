@@ -1,4 +1,5 @@
 import yaml from 'js-yaml';
+import _ from 'lodash';
 
 const parsers = {
   json: JSON.parse,
@@ -6,4 +7,9 @@ const parsers = {
   yml: yaml.load,
 };
 
-export default (fileData, dataFormat) => parsers[dataFormat](fileData);
+export default (fileData, dataFormat) => {
+  if (!_.has(parsers, dataFormat)) {
+    throw new Error('Incorrect file extension!');
+  }
+  return parsers[dataFormat](fileData);
+};
