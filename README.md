@@ -49,7 +49,6 @@ ____
 Fixtures used:
 
 - file1.json
-
 ```
 {
   "common": {
@@ -80,7 +79,6 @@ Fixtures used:
 ```
 
 - file2.json
-
 ```
 {
   "common": {
@@ -116,7 +114,6 @@ Fixtures used:
 ```
 
 - file1.yml
-
 ```
 common:
   setting1: Value 1
@@ -138,7 +135,6 @@ group2:
 ```
 
 - file2.yml
-
 ```
 common: 
  follow: false
@@ -163,4 +159,16 @@ group3:
  fee: 100500
  ```
 
+Example work with files in default format (stylish):
 
+[![asciicast](https://asciinema.org/a/U3iSM9sHtmKaBNrlqPjSCppr6.svg)](https://asciinema.org/a/U3iSM9sHtmKaBNrlqPjSCppr6)
+
+
+Example work with files in plain format:
+
+[![asciicast](https://asciinema.org/a/5kr2zkK8HCN0noXT4VmcksFGE.svg)](https://asciinema.org/a/5kr2zkK8HCN0noXT4VmcksFGE)
+
+
+Example work with files in plain format:
+
+[![asciicast](https://asciinema.org/a/m59J29Cb9d46dgkHYAURUwxFp.svg)](https://asciinema.org/a/m59J29Cb9d46dgkHYAURUwxFp)
