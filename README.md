@@ -14,7 +14,7 @@ Utility features:
 
 - Support for different input formats: yaml, json
 - Report generation as plain text, stylish and json
-- Working with absolute and relative paths of compared files.
+- Working with absolute and relative paths of compared files
 
 ____
 
@@ -49,7 +49,7 @@ ____
 Fixtures used:
 
 - file1.json
-```
+```sh
 {
   "common": {
     "setting1": "Value 1",
@@ -79,7 +79,7 @@ Fixtures used:
 ```
 
 - file2.json
-```
+```sh
 {
   "common": {
     "follow": false,
@@ -114,7 +114,7 @@ Fixtures used:
 ```
 
 - file1.yml
-```
+```sh
 common:
   setting1: Value 1
   setting2: 200
@@ -135,7 +135,7 @@ group2:
 ```
 
 - file2.yml
-```
+```sh
 common: 
  follow: false
  setting1: Value 1
@@ -159,16 +159,32 @@ group3:
  fee: 100500
  ```
 
-Example work with files in default format (stylish):
+Example work with files in default format ("stylish"):
+
+```sh
+gendiff <filepath1> <filepath2>
+```
+or
+```sh
+gendiff -f stylish <filepath1> <filepath2>
+```
 
 [![asciicast](https://asciinema.org/a/U3iSM9sHtmKaBNrlqPjSCppr6.svg)](https://asciinema.org/a/U3iSM9sHtmKaBNrlqPjSCppr6)
 
 
-Example work with files in plain format:
+Example work with files in "plain" format:
+
+```sh
+gendiff -f plain <filepath1> <filepath2>
+```
 
 [![asciicast](https://asciinema.org/a/5kr2zkK8HCN0noXT4VmcksFGE.svg)](https://asciinema.org/a/5kr2zkK8HCN0noXT4VmcksFGE)
 
 
-Example work with files in plain format:
+Example work with files in "json" format:
+
+```sh
+gendiff -f json <filepath1> <filepath2>
+```
 
 [![asciicast](https://asciinema.org/a/m59J29Cb9d46dgkHYAURUwxFp.svg)](https://asciinema.org/a/m59J29Cb9d46dgkHYAURUwxFp)
