@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/885a61216d54f3b9c43b/maintainability)](https://codeclimate.com/github/ZhushmanMS/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/885a61216d54f3b9c43b/test_coverage)](https://codeclimate.com/github/ZhushmanMS/frontend-project-lvl2/test_coverage)
 
-# Welcome to Gendiff!
+# Gendiff
 
 
 ## Description
@@ -14,6 +14,7 @@ Utility features:
 
 - Support for different input formats: yaml, json
 - Report generation as plain text, stylish and json
+- Working with absolute and relative paths of compared files.
 
 ____
 
@@ -22,7 +23,8 @@ ____
 
 Clone repository:
 ```sh
-git clone git@github.com:ZhushmanMS/frontend-project-lvl2.git
+git clone https://github.com/ZhushmanMS/frontend-project-lvl2
+
 ```
 
 Install program in your OS:
@@ -36,9 +38,129 @@ gendiff -h
 ```
 
 Example clone and install repository:
-[![asciicast](https://asciinema.org/a/490141.svg)](https://asciinema.org/a/490141)
+
+[![asciicast](https://asciinema.org/a/Swckbph4dExJfwkCnh4mUmzmx.svg)](https://asciinema.org/a/Swckbph4dExJfwkCnh4mUmzmx)
 
 ____
 
 
-## Examples work
+## Examples of usage
+
+Fixtures used:
+
+- file1.json
+
+```
+{
+  "common": {
+    "setting1": "Value 1",
+    "setting2": 200,
+    "setting3": true,
+    "setting6": {
+      "key": "value",
+      "doge": {
+        "wow": ""
+      }
+    }
+  },
+  "group1": {
+    "baz": "bas",
+    "foo": "bar",
+    "nest": {
+      "key": "value"
+    }
+  },
+  "group2": {
+    "abc": 12345,
+    "deep": {
+      "id": 45
+    }
+  }
+}
+```
+
+- file2.json
+
+```
+{
+  "common": {
+    "follow": false,
+    "setting1": "Value 1",
+    "setting3": null,
+    "setting4": "blah blah",
+    "setting5": {
+      "key5": "value5"
+    },
+    "setting6": {
+      "key": "value",
+      "ops": "vops",
+      "doge": {
+        "wow": "so much"
+      }
+    }
+  },
+  "group1": {
+    "foo": "bar",
+    "baz": "bars",
+    "nest": "str"
+  },
+  "group3": {
+    "deep": {
+      "id": {
+        "number": 45
+      }
+    },
+    "fee": 100500
+  }
+}
+```
+
+- file1.yml
+
+```
+common:
+  setting1: Value 1
+  setting2: 200
+  setting3: true
+  setting6:
+    key: value
+    doge:
+      wow: ""
+group1:
+  baz: bas
+  foo: bar
+  nest:
+    key: value
+group2:
+  abc: 12345
+  deep:
+    id: 45
+```
+
+- file2.yml
+
+```
+common: 
+ follow: false
+ setting1: Value 1
+ setting3: null
+ setting4: blah blah
+ setting5: 
+  key5: value5
+ setting6: 
+  key: value
+  ops: vops
+  doge: 
+   wow: so much
+group1: 
+ foo: bar
+ baz: bars
+ nest: str
+group3: 
+ deep: 
+  id: 
+   number: 45
+ fee: 100500
+ ```
+
+
