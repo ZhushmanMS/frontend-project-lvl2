@@ -28,7 +28,7 @@ const getRenderAst = (astDiff) => {
         return keyData.children.flatMap((child) => iter(child, currentPath));
       }
       default:
-        return 'Unknown state!';
+        throw new Error(`${keyData.state} - unknown state!`);
     }
   };
   return astDiff.flatMap((keyData) => iter(keyData)).join('\n');

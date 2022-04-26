@@ -46,7 +46,7 @@ const getRenderAst = (astDiff) => {
           return renderChangedValue;
         }
         default: {
-          return 'Unknown state!';
+          throw new Error(`${keyData.state} - unknown state!`);
         }
       }
     });

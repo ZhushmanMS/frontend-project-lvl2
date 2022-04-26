@@ -9,7 +9,7 @@ const parsers = {
 
 export default (fileData, dataFormat) => {
   if (!_.has(parsers, dataFormat)) {
-    throw new Error('Incorrect file extension!');
+    throw new Error(`file extension ${dataFormat} invalid!`);
   }
   return parsers[dataFormat](fileData);
 };

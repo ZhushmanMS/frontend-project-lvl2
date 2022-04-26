@@ -3,8 +3,6 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import genDiff from '../src/index.js';
 
-let expectedResult;
-
 const extAndFormat = [
   ['json', 'stylish'], ['json', 'plain'], ['json', 'json'],
   ['yml', 'stylish'], ['yml', 'plain'], ['yml', 'json'],
@@ -18,7 +16,11 @@ const getFixtureData = (filename) => readFileSync(getFixturePath(filename), 'utf
 test.each(extAndFormat)(
   'genDiff .%s files in %s format',
   (ext, format) => {
-    expectedResult = genDiff(getFixturePath(`file1.${ext}`), getFixturePath(`file2.${ext}`), format);
+    const expectedResult = genDiff(getFixturePath(`file1.${ext}`), getFixturePath(`file2.${ext}`), format);
     expect(expectedResult).toEqual(getFixtureData(`${format}_diff_result`));
   },
 );
+test('genDiff files in default format', () => {
+  const expectedResult = genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'));
+  expect(expectedResult).toEqual(getFixtureData('stylish_diff_result'));
+});
